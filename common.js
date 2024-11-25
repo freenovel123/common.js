@@ -181,6 +181,17 @@ const common = {
 		},
 	},
 	/**
+	 * md5加密
+	 * @param data
+	 */
+	md5: (data) => {
+		if (typeof OS != 'undefined') {
+			return OS.md5(data);
+		} else {
+			return null;
+		}
+	},
+	/**
 	 * aes加密
 	 */
 	aes: {
