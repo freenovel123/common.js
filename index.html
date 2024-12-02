@@ -6,6 +6,7 @@
 	<title>test</title>
 </head>
 <body>
+<script type="text/javascript" src="./crypto.min.js"></script>
 <script type="text/javascript" src="./common.js"></script>
 <script type="text/javascript">
 	async function jsFun() {
@@ -19,6 +20,16 @@
 	}).catch((error) => {
 		console.log(error);
 	})
+
+	// base64
+	const base64encode = app.base64.encode("hello");
+	console.log(base64encode);
+	console.log(app.base64.decode(base64encode));
+
+	// unicode
+	const unicodeencode = app.unicode.encode("你好");
+	console.log(unicodeencode);
+	console.log(app.unicode.decode(unicodeencode));
 </script>
 </body>
 </html>
