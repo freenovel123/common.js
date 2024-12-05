@@ -10,9 +10,12 @@
 <script type="text/javascript" src="./common.js"></script>
 <script type="text/javascript">
 	async function jsFun() {
-		let result = await app.post({name: 'test'});
-		console.log(result);
-		return result;
+		let a = [{name:'a'}];
+		let b = a[0].value
+		console.log(app.stringToJson(b))
+		// let result = await app.post({name: 'test'});
+		// console.log(result);
+		return b;
 	}
 
 	jsFun().then((result) => {
@@ -22,12 +25,12 @@
 	})
 
 	// base64
-	const base64encode = app.base64.encode("hello");
+	const base64encode = app.base64.encode("Hello, World!");
 	console.log(base64encode);
 	console.log(app.base64.decode(base64encode));
 
 	// unicode
-	const unicodeencode = app.unicode.encode("你好");
+	const unicodeencode = app.unicode.encode("你好！");
 	console.log(unicodeencode);
 	console.log(app.unicode.decode(unicodeencode));
 </script>
