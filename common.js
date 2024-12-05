@@ -17,6 +17,18 @@
             console.log(info);
         },
         /**
+         * 统一错误处理
+         *
+         * @param error 错误信息
+         */
+        handleError: (error) => {
+            APP.log('JS执行错误:', error);
+            if (typeof OS != 'undefined') {
+                OS.handleError(error)
+            }
+            throw error;
+        },
+        /**
          * Toast
          *
          * @param info
@@ -139,6 +151,20 @@
                     reject('不支持的GET方法');
                 }
             })
+        },
+        /**
+         * 处理Socket
+         *
+         * @param path 地址
+         * @param protocols 协议
+         * @returns {*}
+         */
+        socket: (path, protocols = []) => {
+            if (typeof OS != 'undefined') {
+                return OS.socket(path, protocols);
+            } else {
+                console.log('不支持的SOCKET方法')
+            }
         },
         /**
          * 简易存储

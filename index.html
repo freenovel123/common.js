@@ -10,12 +10,6 @@
 <script type="text/javascript" src="./common.js"></script>
 <script type="text/javascript">
 	async function jsFun() {
-		let a = [{name:'a'}];
-		let b = a[0].value
-		console.log(app.stringToJson(b))
-		// let result = await app.post({name: 'test'});
-		// console.log(result);
-		return b;
 	}
 
 	jsFun().then((result) => {
@@ -24,15 +18,17 @@
 		console.log(error);
 	})
 
-	// base64
-	const base64encode = app.base64.encode("Hello, World!");
-	console.log(base64encode);
-	console.log(app.base64.decode(base64encode));
+	// app.socket("http://127.0.0.1:8080", "json");
 
-	// unicode
-	const unicodeencode = app.unicode.encode("你好！");
-	console.log(unicodeencode);
-	console.log(app.unicode.decode(unicodeencode));
+	// base64
+	// const base64encode = app.base64.encode("Hello, World!");
+	// console.log(base64encode);
+	// console.log(app.base64.decode(base64encode));
+	//
+	// // unicode
+	// const unicodeencode = app.unicode.encode("你好！");
+	// console.log(unicodeencode);
+	// console.log(app.unicode.decode(unicodeencode));
 </script>
 </body>
 </html>
