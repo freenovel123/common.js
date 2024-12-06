@@ -160,8 +160,8 @@
          * @returns {*}
          */
         socket: (path, protocols = []) => {
-            if (typeof OS != 'undefined') {
-                return OS.socket(path, protocols);
+            if (typeof OSSocket === 'function') {
+                return OSSocket(path, protocols);
             } else {
                 console.log('不支持的SOCKET方法')
             }
