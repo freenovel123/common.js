@@ -167,6 +167,16 @@
             }
         },
         /**
+         * 获取uuid 
+         */
+        uuid: () => {
+            if (typeof OS != 'undefined') {
+                return OS.uuid();
+            } else {
+                console.log('不支持的SOCKET方法')
+            }
+        },
+        /**
          * 简易存储
          */
         sp: {
