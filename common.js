@@ -1,6 +1,18 @@
 (function (global) {
     const common = {
         /**
+         * 文档处理
+         * @param html
+         * @param clean
+         */
+        doc: (html, clean = false) => {
+            if (typeof OSDocument === 'function') {
+                return OSDocument.load(html, clean);
+            } else {
+                console.log('不支持的Document方法')
+            }
+        },
+        /**
          * 日志打印
          *
          * @param args
@@ -248,15 +260,15 @@
         base64: {
             /**
              * 解码
-             * @param text
+             * @param code
              * @returns {*|string}
              */
-            decode: (text) => {
-                if (typeof CryptoJS != 'undefined') {
-                    const decodedWordArray = CryptoJS.enc.Base64.parse(text);
+            decode: (code) => {
+                if (typeof CryptoJS == 'object') {
+                    const decodedWordArray = CryptoJS.enc.Base64.parse(code);
                     return CryptoJS.enc.Utf8.stringify(decodedWordArray);
                 } else {
-                    return text;
+                    return code;
                 }
             },
             /**
@@ -265,7 +277,7 @@
              * @returns {*|string}
              */
             encode: (text) => {
-                if (typeof CryptoJS != 'undefined') {
+                if (typeof CryptoJS == 'object') {
                     const wordArray = CryptoJS.enc.Utf8.parse(text);
                     return CryptoJS.enc.Base64.stringify(wordArray);
                 } else {
