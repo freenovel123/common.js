@@ -6,7 +6,7 @@
          * @param clean
          */
         doc: (html, clean = false) => {
-            if (typeof OSDocument === 'function') {
+            if (typeof OSDocument === 'object') {
                 return OSDocument.load(html, clean);
             } else {
                 console.log('不支持的Document方法')
