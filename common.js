@@ -281,11 +281,27 @@
             /**
              * 解码
              * @param code
+             * @param toArray 是否转换成bytes
              * @returns {*|string}
              */
-            decode: (code) => {
+            decode: (code, toArray = false) => {
                 if (typeof CryptoJS == 'object') {
                     const decodedWordArray = CryptoJS.enc.Base64.parse(code);
+                    console.log(decodedWordArray);
+
+                    if (toArray) {
+                        const words = decodedWordArray.words;
+                        const sigBytes = decodedWordArray.sigBytes;
+
+                        const byteArray = [];
+                        for (let i = 0; i < sigBytes; i++) {
+                            const byte = (words[i >>> 2] >>> (24 - (i % 4) * 8)) & 0xff;
+                            byteArray.push(byte);
+                        }
+
+                        return byteArray;
+                    }
+
                     return CryptoJS.enc.Utf8.stringify(decodedWordArray);
                 } else {
                     return code;

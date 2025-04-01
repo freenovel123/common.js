@@ -9,7 +9,10 @@
 <script type="text/javascript" src="./crypto.min.js"></script>
 <script type="text/javascript" src="./common.js"></script>
 <script type="text/javascript">
-	
+	(function () {
+		let decode = app.base64.decode('SGVsbG8sIFdvcmxkIQ==', true);
+		console.log(decode);
+	})(this);
 </script>
 </body>
 </html>
