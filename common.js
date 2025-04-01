@@ -189,6 +189,26 @@
             }
         },
         /**
+         * 字符串转Bytes
+         */
+        strToBytes: (text) => {
+            if (typeof OS != 'undefined') {
+                return OS.strToBytes(text);
+            } else {
+                console.log('不支持的strToBytes方法')
+            }
+        },
+        /**
+         * Bytes转字符串
+         */
+        bytesToStr: (bytes, code = 'utf-8') => {
+            if (typeof OS != 'undefined') {
+                return OS.bytesToStr(bytes, code);
+            } else {
+                console.log('不支持的bytesToStr方法')
+            }
+        },
+        /**
          * 简易存储
          */
         sp: {
